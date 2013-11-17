@@ -27,6 +27,7 @@ public  abstract class Character {
 
     // ~~~~~~~~~~~~~~ ACCESSORS ~~~~~~~~~~~~~~~~~
     public int getDefense() { return _defense; }
+    public int getHP() {return _hitPts;}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     

@@ -119,12 +119,16 @@ public class YoRPG {
 
 	    while( smaug.isAlive() && pat.isAlive() ) {
 
+		System.out.println( "Your HP: "+pat.getHP() );
+		System.out.println( smaug.getName()+"'s HP: "+smaug.getHP() );
+
 		// Give user the option of using a special attack:
 		// If you land a hit, you incur greater damage,
 		// ...but if you get hit, you take more damage.
 		try {
 		    System.out.println( "Attack?" );
-		    System.out.println( "\t1: Normal.\n\t2: SPECIAL! CHARGE!!!@#$@!#$@" );
+		    System.out.println( "\t1: Normal.\n\t2: SPECIAL! CHARGE!!!@#$@!#$@\n\t3: Whoa whoa time out. Heal!" );
+		    //have not implemented heal method (as a non-abstract in Student)
 		    i = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
@@ -132,23 +136,28 @@ public class YoRPG {
 		if (Math.random()>=.5){
 		    d2 = smaug.attackNormal( pat );}
 		else {d2 = smaug.attackSpecial( pat );}
-
-		if ( i == 2 ){
-		    pat.specialize();
-		    d1 = pat.attackSpecial( smaug );
-		    
-		}
-		else{
+		
+		d1 = 0;
+		d2 = 0;
+		if ( i == 1 ){
 		    pat.normalize();
 		    d1 = pat.attackNormal( smaug );
+		    
 		}
-	
+		else if (i == 2) {
+		    pat.specialize();
+		    d1 = pat.attackSpecial( smaug );
+		}
+		else if ( i == 3) {
+		    //pat.heal() or whatever Ben's implementation is
+		}
 
 		System.out.println( pat.getName() + " dealt " + d1 +
 				    " points of damage.");
 
 		System.out.println( smaug.getName() + " hit back for " + d2 +
 				    " points of damage.");
+
 	    }//end while
 
 	    //option 1: you & the monster perish
@@ -178,9 +187,6 @@ public class YoRPG {
 
 
     public static void main( String[] args ) {
-
-	//As usual, move the begin-comment bar down as you progressively 
-	//test each new bit of functionality...
 
 	//loading...
 	YoRPG game = new YoRPG();

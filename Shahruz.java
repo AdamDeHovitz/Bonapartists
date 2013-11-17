@@ -5,24 +5,24 @@
 
 public class Shahruz extends Student{
     
-
+    Adam helper = new Adam();
 
     public Shahruz(){
-	_hitPts = 125;
-	_strength = 100;
+	_hitPts = 100;
+	_strength = 120;
 	_defense = 40;
 	_attack = .4;
 	_name = "Shahruz";}
     
     
     
-    public int laptop(Character opponent){
-	
-	int damage = (int)( (_strength * _attack) - opponent.getDefense() );
+    public int askAdam(Character opponent){
+
+	int damage = (int)( ( (_strength * _attack) + helper.laptop(this) - opponent.getDefense() ) * 0.65);
 	damage *= 1.3;
 	return damage;}
     
-    public int javaAPI(Character opponent){
+    public int gedit(Character opponent){
 	
 	int damage = (int)( (_strength * _attack) - opponent.getDefense() );
 	
@@ -32,11 +32,12 @@ public class Shahruz extends Student{
 	 int type = (int)(Math.random()*2);
 	 int damage = 0;
 	 if (type == 0){
-	     System.out.println(_name+" Pulls out his own laptop to use!");
-	     damage = laptop(opponent);}
+	     System.out.println(_name+" gets help from his trusty Adam!\n"+
+				"Adam pulls out his laptop for an additional "+helper.laptop(this)+" damage!");
+	     damage = askAdam(opponent);}
 	 else {
-	     System.out.println(_name + " references the java API!");
-	     damage = doHW(opponent);}
+	     System.out.println(_name + " uses gedit instead of emacs!");
+	     damage = gedit(opponent);}
 	
 
 	 if ( damage < 0 )

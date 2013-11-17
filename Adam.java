@@ -8,8 +8,8 @@ public class Adam extends Student{
 
 
     public Adam(){
-	_hitPts = 125;
-	_strength = 100;
+	_hitPts = 130;
+	_strength = 90;
 	_defense = 40;
 	_attack = .4;
 	_name = "Adam";}
@@ -22,7 +22,7 @@ public class Adam extends Student{
 	damage *= 1.3;
 	return damage;}
     
-    public int javaAPI(Character opponent){
+    public int dehoHypo(Character opponent){
 	
 	int damage = (int)( (_strength * _attack) - opponent.getDefense() );
 	
@@ -32,11 +32,11 @@ public class Adam extends Student{
 	 int type = (int)(Math.random()*2);
 	 int damage = 0;
 	 if (type == 0){
-	     System.out.println(_name+" Pulls out his own laptop to use!");
+	     System.out.println(_name+" pulls out his own laptop to use!");
 	     damage = laptop(opponent);}
 	 else {
-	     System.out.println(_name + " references the java API!");
-	     damage = doHW(opponent);}
+	     System.out.println(_name + " develops the DeHovitz hypothesis!");
+	     damage = dehoHypo(opponent);}
 	
 
 	 if ( damage < 0 )

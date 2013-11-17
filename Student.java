@@ -10,6 +10,7 @@ public abstract class Student extends Character {
     public String getName(){
 	return _name;
     }
+
     
     public int attackNormal( Character opponent ) {
 	 int type = (int)(Math.random()*2);
@@ -20,8 +21,6 @@ public abstract class Student extends Character {
 	 else {
 	     System.out.println(_name + " does his homework using code found online!");
 	     damage = doHW(opponent);}
-		 // int damage = (int)( (_strength * _attack) - opponent.getDefense() );
-	 //System.out.println( "\t\t**DIAG** damage: " + damage );
 
 	 if ( damage < 0 )
 	     damage = 0;
@@ -45,16 +44,6 @@ public abstract class Student extends Character {
     public String about(){
 	return "The Student is a persistant fellow, working against great odds in the hope of one day not being a Student";}
     
-    //prepare a Warrior for a special attack
-    /*public void specialize() {
-	_attack = .75;
-	_defense = 20;
-    }
 
-    //revert to normal mode
-    public void normalize() {
-	_attack = .4;
-	_defense = 40;
-	}*/
 
 }//end class Warrior
