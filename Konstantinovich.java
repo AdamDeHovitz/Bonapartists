@@ -2,7 +2,8 @@
 
 public class Konstantinovich extends Teacher{
     
-    private String[] lore= {"Lord of the Rings","Star Trek","Futurama","Star Wars","Legend of Zelda",};
+    private String[] lore= {"Lord of the Rings","Star Trek","Futurama","Star Wars","Legend of Zelda","Battlestar Galactica",
+			    "LOLcatz","World of Warcraft","South Park","XKCD","Cyanide and Happiness",};
 
     public Konstantinovich(){
 	_hitPts = 125;
@@ -20,7 +21,7 @@ public class Konstantinovich extends Teacher{
     
     public int attackSpecial(Character opponent){ 
 	int damage;
-	System.out.println(_name+" makes an obscure " + lore[(int)(Math.random()*5)]+ " reference!\n Ouch that one hurt!");
+	System.out.println(_name+" makes an obscure " + lore[(int)(Math.random()*lore.length)]+ " reference!\n Ouch that one hurt!");
 	damage = reference(opponent);
 
 	if ( damage < 0 )

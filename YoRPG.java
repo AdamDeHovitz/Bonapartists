@@ -101,12 +101,12 @@ public class YoRPG {
 	int i = 1;
 	int d1, d2;
 
-	int teacherChoice = (int) Math.random() * 5;
+	int teacherChoice = (int) (Math.random() * 5);
 
 	if (teacherChoice == 0) { smaug = new Brooks();}
-	else if (teacherChoice == 1) { smaug = new Brooks(); } //Zamansky
+	else if (teacherChoice == 1) { smaug = new Zamansky(); } 
 	else if (teacherChoice == 2) { smaug = new Brooks(); } //Brown
-	else if (teacherChoice == 3) { smaug = new Brooks(); } //D-W
+	else if (teacherChoice == 3) { smaug = new DW(); } 
 	else { smaug = new Konstantinovich(); }
 
 	if ( Math.random() >= ( difficulty / 3.0 ) )
@@ -132,13 +132,13 @@ public class YoRPG {
 		    i = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
-
+		d1 = 0;
+		d2 = 0;
 		if (Math.random()>=.5){
 		    d2 = smaug.attackNormal( pat );}
 		else {d2 = smaug.attackSpecial( pat );}
 		
-		d1 = 0;
-		d2 = 0;
+
 		if ( i == 1 ){
 		    pat.normalize();
 		    d1 = pat.attackNormal( smaug );

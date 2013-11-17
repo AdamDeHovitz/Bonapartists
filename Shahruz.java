@@ -18,7 +18,7 @@ public class Shahruz extends Student{
     
     public int askAdam(Character opponent){
 
-	int damage = (int)( ( (_strength * _attack) + helper.laptop(this) - opponent.getDefense() ) * 0.65);
+	int damage = (int)( ( (_strength * _attack) + helper.laptop(this) - opponent.getDefense() ) * 0.75);
 	damage *= 1.3;
 	return damage;}
     
