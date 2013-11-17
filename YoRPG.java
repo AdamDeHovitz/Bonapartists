@@ -14,7 +14,8 @@ public class YoRPG {
     //change this constant to set number of encounters in a game
     public final static int MAX_ENCOUNTERS = 5;
 
-    //each round, a Warrior and a Monster will be instantiated
+    //each round, a Teacher will be instantiated
+    //the Student is instantiated at the beginning of each playthrough
     private Student pat;
     private Teacher smaug;
 
@@ -84,18 +85,7 @@ public class YoRPG {
 	if (choice.equals("1")) {  pat = new Adam();}
 	else if (choice.equals("2")) { }//IMPLEMENT A BEN
 	else {  pat = new Shahruz();} 
-	/*
-	s = "Intrepid warrior, what doth thy call thyself? (State your name): ";
-	System.out.print( s );
 
-	try {
-	    name = in.readLine();
-	}
-	catch ( IOException e ) { }
-
-
-	//instantiate the player's character
-	pat = new Warrior( name );*/
 
     }//end newGame()
 
@@ -123,7 +113,7 @@ public class YoRPG {
 	    System.out.println( "\nNothing to see here. Move along!" );
 
 	else {
-	    System.out.println( "\nLo, yonder monster approacheth!" );
+	    System.out.println( "\nLo, yonder monster approacheth!\nTis a "+smaug.getName()+"!" );
 
 	    //smaug = new Brooks();
 
@@ -152,7 +142,6 @@ public class YoRPG {
 		    pat.normalize();
 		    d1 = pat.attackNormal( smaug );
 		}
-		    //d1 = pat.attack( smaug );
 	
 
 		System.out.println( pat.getName() + " dealt " + d1 +
@@ -165,19 +154,20 @@ public class YoRPG {
 	    //option 1: you & the monster perish
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
-				    "You cut ye olde monster down, but " +
-				    "with its dying breath ye olde monster. " +
-				    "laid a fatal blow upon thy skull." );
+				    "You caused "+smaug.getName()+" to retire early because of stress, but " +
+				    "with his last breath he failed you. " +
+				    "You will never make it out of Stuy." );
 		return false;
 	    }
 	    //option 2: you slay the beast
 	    else if ( !smaug.isAlive() ) {
-		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+		System.out.println( "Huzzaah! You have passed "+smaug.getName()+"'s class!" );
 		return true;
 	    }
 	    //option 3: the beast slays you
 	    else if ( !pat.isAlive() ) {
-		System.out.println( "Ye olde self hath expired. You got dead." );
+		System.out.println( "The teachers have proved too much for you...You have dropped all "+
+				    "your CS courses, but plan to self-study for the AP test...Good luck...");
 		return false;
 	    }
 	}//end else
